@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.mapper.UserMapper">
+    <resultMap id="UserMap" type="com.lanou.bean.UserBean">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="level" property="level"/>
+        <result column="des" property="des"/>
+        <result column="tel" property="tel"/>
+        <result column="address" property="address"/>
+    </resultMap>
+    <select id="findUser" resultMap="UserMap">
+       SELECT * FROM b_user WHERE name = #{name} AND password=#{password};
+    </select>
+    <select id="getall" resultMap="UserMap">
+      SELECT * FROM b_user;
+    </select>
+    <insert id="insertUser">
+        INSERT INTO b_user(name,password) VALUES (#{name},#{password})
+    </insert>
+</mapper>
