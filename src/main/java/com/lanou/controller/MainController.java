@@ -91,7 +91,7 @@ public class MainController {
         if (num > 0) {
             return "home";
         } else {
-            return "";
+            return "nfail";
         }
 
     }
